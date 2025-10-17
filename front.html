@@ -29,7 +29,13 @@
   </select>
 
   <label for="workout">Workout:</label>
-  <input type="text" id="workout" placeholder="e.g. Leg Day or Rest" required />
+  <select id="workout" placeholder="e.g. Leg Day or Rest" required />
+    <option value="">--Select Workout--</option>
+    <option value="Leg Day">Leg Day</option>
+    <option value="Arm Day">Arm Day</option>
+    <option value="Cardio">Cardio</option>
+    <option value="Rest">Rest</option>
+    </select>
 
   <button type="submit">Add to Schedule</button>
 </form>
