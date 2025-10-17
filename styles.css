@@ -137,3 +137,15 @@ li button {
   border-radius: 8px;
   padding: 0.4rem;
 }
+
+header {
+  display: flex;
+  align-items: center; /* vertically center logo and text */
+  gap: 10px;           /* space between logo and text */
+  padding: 10px;
+}
+
+#logo {
+  width: 50px;   /* adjust size as needed */
+  height: auto;
+}
