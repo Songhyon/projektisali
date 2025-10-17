@@ -1,73 +1,71 @@
-const form = document.getElementById('workoutForm');
-const list = document.getElementById('entryList');
-const summaryDiv = document.getElementById('summary');
-const summaryText = document.getElementById('summaryText');
-const errorDiv = document.getElementById('error');
-const progressBar = document.getElementById('progressBar');
-const chartCanvas = document.getElementById('chart');
-const goalInput = document.getElementById('goal');
-const setGoalBtn = document.getElementById('setGoal');
-const toggleSummary = document.getElementById('toggleSummary');
+// --- Elementit ---
+const form = document.getElementById('workout-form');
+const list = document.getElementById('schedule-list');
+const clearBtn = document.getElementById('clear-schedule');
 
+// --- Data ---
 let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
-let goal = localStorage.getItem('goal') ? parseFloat(localStorage.getItem('goal')) : 0;
-let chart;
 
+// --- Tallenna localStorageen ---
 function saveData() {
   localStorage.setItem('workouts', JSON.stringify(workouts));
 }
 
+// --- Renderöi lista ---
 function renderList() {
   list.innerHTML = '';
+
+  if (workouts.length === 0) {
+    list.innerHTML = '<li>No workouts added yet.</li>';
+    return;
+  }
+
   workouts.forEach((w, i) => {
     const li = document.createElement('li');
     li.innerHTML = `
-      <span><strong>${w.day}</strong> — ${w.category}: ${w.hours} h (${w.description || "ei kuvausta"})</span>
-      <button onclick="deleteEntry(${i})">🗑️</button>
+      <strong>${w.day}</strong>: ${w.workout}
+      <button class="delete-btn" data-index="${i}">❌</button>
     `;
     list.appendChild(li);
   });
-  renderSummary();
-    renderChart();
+}
 
-}
-function renderSummary() {
-  const totalHours = workouts.reduce((sum, w) => sum + w.hours, 0);
-  summaryText.textContent = `Yhteensä: ${totalHours.toFixed(2)} h`;
-    if (goal > 0) {
-    const progress = Math.min((totalHours / goal) * 100, 100);
-    progressBar.style.width = progress + '%';
-    progressBar.textContent = `${progress.toFixed(2)}% of ${goal} h goal`;
+// --- Lisää uusi merkintä ---
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const day = document.getElementById('day').value;
+  const workout = document.getElementById('workout').value.trim();
+
+  if (!day || !workout) {
+    alert('Please fill all fields.');
+    return;
   }
-}
-function renderChart() {
-  const ctx = chartCanvas.getContext('2d');
-  const categories = [...new Set(workouts.map(w => w.category))];
-  const data = categories.map(cat => {
-    return workouts
-      .filter(w => w.category === cat)
-      .reduce((sum, w) => sum + w.hours, 0);
-  });
-    if (chart) {
-    chart.destroy();
+
+  workouts.push({ day, workout });
+  saveData();
+  renderList();
+  form.reset();
+});
+
+// --- Poista yksittäinen merkintä ---
+list.addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete-btn')) {
+    const index = e.target.getAttribute('data-index');
+    workouts.splice(index, 1);
+    saveData();
+    renderList();
   }
-    chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: categories,
-        datasets: [{
-        label: 'Tunnit per kategoria',
-        data: data,
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-      }]    
-    },
-    options: {
-      responsive: true,
-        scales: {  
-        y: {
-          beginAtZero: true,
-        }
-        }
-    }
-  });
-}
+});
+
+// --- Tyhjennä kaikki ---
+clearBtn.addEventListener('click', () => {
+  if (confirm('Are you sure you want to clear the schedule?')) {
+    workouts = [];
+    saveData();
+    renderList();
+  }
+});
+
+// --- Käynnistyksessä ---
+renderList();
