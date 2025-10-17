@@ -9,10 +9,10 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to the Front Page</h1>
+        <h1>NordFit Workout List</h1>
     </header>
     <main>
-        <p>This is the main content of the front page.</p>
+        <p>Choose a day and enter your workout or type "Rest" for rest days.</p>
     </main>
 
     <form id="workout-form">
@@ -34,7 +34,8 @@
   <button type="submit">Add to Schedule</button>
 </form>
 
-<ul id="schedule-list"></ul>
+<ul id="schedule-list" aria-live="polite"></ul>
+<button id="clear-schedule">Clear Schedule</button>
     <footer>
         <p>&copy; 2024 My Website</p>
     </footer>
