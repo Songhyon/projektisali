@@ -1,8 +1,10 @@
 const form = document.getElementById('workout-form');
 const list = document.getElementById('schedule-list');
-const clearBtn = document.getElementById('clear'); // vastaa HTML:n ID:tä
+const clearBtn = document.getElementById('clear');
 const workoutSelect = document.getElementById('workout');
 const exerciseSelect = document.getElementById('exercise');
+const weekOrder = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+
 
 const exerciseOptions = {
   "Leg Day": ["Squat", "Bulgarian Split Squat", "Leg Press", "Lunges", "Deadlift"],
@@ -68,6 +70,26 @@ if (workout === "Back Day") li.style.backgroundColor = "#8d33d2ff";
 if (workout === "Cardio") li.style.backgroundColor = "#caffbf";
 if (workout === "Rest") li.style.backgroundColor = "#d3d3d3";
 
+// päivien järjestäminen
+  const newIndex = weekOrder.indexOf(day);
+  const items = Array.from(list.children); // nykyiset li:t
+
+  let inserted = false;
+  for (let i = 0; i < items.length; i++) {
+    const itemDay = items[i].textContent.split(':')[0];
+    const itemIndex = weekOrder.indexOf(itemDay);
+
+    if (newIndex < itemIndex) {
+      list.insertBefore(li, items[i]);
+      inserted = true;
+      break;
+    }
+  }
+
+  if (!inserted) {
+    list.appendChild(li);
+  }
+
   form.reset();
   updateExercise(); // palauttaa exercise-selectin oletukseen
 });
@@ -76,4 +98,3 @@ if (workout === "Rest") li.style.backgroundColor = "#d3d3d3";
 clearBtn.addEventListener('click', () => {
   list.innerHTML = '';
 });
-
