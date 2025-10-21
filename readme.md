@@ -20,3 +20,13 @@ Teknologiat
 -JavaScript (vanilla JS)
 -LocalStorage (tietojen tallennus selaimessa)
 -YouTube upotetut videot harjoituksille
+
+
+
+Anthony Video
+
+Santerin Video
+
+
+
+nordfit.netlify.app
