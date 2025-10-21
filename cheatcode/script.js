@@ -2,7 +2,6 @@
 const form = document.getElementById('workout-form');
 const list = document.getElementById('schedule-list');
 const clearBtn = document.getElementById('clear-schedule');
-
 const workoutSelect = document.getElementById('workout');
 const exerciseSelect = document.getElementById('exercise');
 const setField = document.getElementById('set');
