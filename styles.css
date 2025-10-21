@@ -77,3 +77,26 @@ button:hover {
   font-family: Arial, sans-serif;
   color: #121212;
 }
+
+/* --- CHECKBOX & DONE EFFECT --- */
+.schedule-item span {
+  flex: 1;
+  transition: color 0.3s ease, opacity 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+/* Kun checkbox valittu */
+.schedule-item span.done {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
+  color: rgba(240, 240, 240, 0.6) !important;
+  opacity: 0.6;
+}
+
+/* Checkbox-tyyli */
+.done-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #43cea2; /* tekee vihreän checkin moderneissa selaimissa */
+  cursor: pointer;
+}
