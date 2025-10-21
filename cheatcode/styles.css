@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top left, #1e1e2f, #121212);
+  color: #f2f2f2;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #2c2c3e;
+  color: #fff;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #3fc1a0, #0d4d7c);
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+input.error-border, select.error-border {
+  border: 2px solid #ff6b6b;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #2c2c3e;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  width: auto;
+  padding: 0.4rem 0.6rem;
+  background: #ff5c5c;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+.toggle-btn {
+  background: #3a3a5a;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  padding: 0.3rem 0.6rem;
+}
+
+.progress-container {
+  background: #333;
+  border-radius: 10px;
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+#progressBar {
+  background: linear-gradient(90deg, #43cea2, #185a9d);
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+#goalContainer {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+#goal {
+  flex: 1;
+  background: #2c2c3e;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+
+header {
+  display: flex;
+  align-items: center; /* vertically center logo and text */
+  gap: 500px;           /* space between logo and text */
+  padding: 10px;
+}
+
+#logo {
+  width: 250px;   /* adjust size as needed */
+  height: auto;
+}
+
+.day-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 1rem;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ffffff;
+  margin: 0.5rem 0 1rem 0;
+}
