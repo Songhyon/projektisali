@@ -7,6 +7,8 @@ const exerciseSelect = document.getElementById('exercise');
 const exerciseOptions = {
   "Leg Day": ["Squat", "Bulgarian Split Squat", "Leg Press", "Lunges", "Deadlift"],
   "Arm Day": ["Bicep Curl", "Tricep Pushdown", "Hammer Curl", "Overhead Extension"],
+  "Back Day": ["Pull-ups", "Lat Pulldown", "Barbell Row", "Dumbbell Row", "Deadlift"],
+  "Chest Day": ["Bench Press", "Incline Dumbbell Press", "Chest Fly", "Push-ups", "Cable Crossover"],
   "Cardio": ["Running", "Cycling", "Rowing", "Jump Rope", "HIIT"],
   "Rest": ["No Exercise"]
 };
@@ -61,6 +63,8 @@ form.addEventListener('submit', (e) => {
 
 if (workout === "Leg Day") li.style.backgroundColor = "#a0c4ff";
 if (workout === "Arm Day") li.style.backgroundColor = "#ffadad";
+if (workout === "Chest Day") li.style.backgroundColor = "#c5512eff";
+if (workout === "Back Day") li.style.backgroundColor = "#8d33d2ff";
 if (workout === "Cardio") li.style.backgroundColor = "#caffbf";
 if (workout === "Rest") li.style.backgroundColor = "#d3d3d3";
 
