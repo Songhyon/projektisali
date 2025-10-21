@@ -106,3 +106,9 @@ img {
   margin: 1rem auto;
   max-width: 250px;
 }
+
+video {
+  max-width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
