@@ -45,12 +45,15 @@ button {
   transition: 0.3s;
 }
 
-
+.clear {
+    color: rgba(245, 245, 245, 0.671);
+    background: linear-gradient(135deg, #ce4343, #9d1818);
+}
 
 .button-row {
   display: flex;
-  justify-content: center; /* centers them horizontally */
-  gap: 1rem; /* space between buttons */
+  justify-content: center; 
+  gap: 1rem; 
   margin-top: 1rem;
 }
 
