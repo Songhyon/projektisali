@@ -58,12 +58,22 @@ button {
 }
 
 .button-row button {
-  width: auto; /* let buttons size naturally */
-  flex: 1; /* make them equal width (optional) */
-  max-width: 200px; /* prevent them from stretching too wide */
+  width: auto;
+  flex: 1;
+  max-width: 200px;
 }
 
 button:hover {
   transform: scale(1.03);
   background: linear-gradient(135deg, #3fc1a0, #0d4d7c);
+}
+
+.schedule-item {
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+  margin-bottom: 8px;      
+  border-radius: 8px;     
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  color: #121212;
 }

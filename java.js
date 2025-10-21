@@ -57,6 +57,12 @@ form.addEventListener('submit', (e) => {
   const li = document.createElement('li');
   li.textContent = text;
   list.appendChild(li);
+  li.classList.add('schedule-item');
+
+if (workout === "Leg Day") li.style.backgroundColor = "#a0c4ff";
+if (workout === "Arm Day") li.style.backgroundColor = "#ffadad";
+if (workout === "Cardio") li.style.backgroundColor = "#caffbf";
+if (workout === "Rest") li.style.backgroundColor = "#d3d3d3";
 
   form.reset();
   updateExercise(); // palauttaa exercise-selectin oletukseen
@@ -66,3 +72,4 @@ form.addEventListener('submit', (e) => {
 clearBtn.addEventListener('click', () => {
   list.innerHTML = '';
 });
+

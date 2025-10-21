@@ -163,3 +163,13 @@ hr {
   border-top: 1px solid #ffffff;
   margin: 0.5rem 0 1rem 0;
 }
+
+
+.schedule-item {
+  background-color: #f0f0f0; /* vaalea tausta */
+  padding: 10px 15px;        /* sisäiset marginaalit */
+  margin-bottom: 8px;         /* väli korttien väliin */
+  border-radius: 8px;         /* pyöristetyt kulmat */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* pieni varjo */
+  font-family: Arial, sans-serif;
+}
