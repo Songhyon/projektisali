@@ -7,13 +7,12 @@ const setField = document.getElementById('set');
 const repField = document.getElementById('rep');
 const setRepFields = document.getElementById('set-rep-fields');
 
-// Kun lomake lähetetään (Add to Schedule painetaan)
 form.addEventListener('submit', (e) => {
   e.preventDefault(); // Estää sivun uudelleenlatauksen
 
   const day = document.getElementById('day').value;
-  const workout = workoutSelect.value;
-  const exercise = exerciseSelect.value;
+  const workout = workoutSelect.value.trim();
+  const exercise = exerciseSelect.value.trim();
   const sets = setField.value;
   const reps = repField.value;
 
@@ -22,21 +21,23 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Jos valitaan "Rest", ei tarvita set/reps
+  // Jos valittu treeni ei ole "Rest", lisätään setit ja repsit
   let text = `${day}: ${workout}`;
-  if (workout !== 'Rest' && sets && reps) {
-    text += exercise ? ` - ${exercise} (${sets} sets x ${reps} reps)` : ` (${sets} sets x ${reps} reps)`;
+  if (workout !== 'Rest') {
+    if (exercise) text += ` - ${exercise}`;
+    text += ` (${sets} sets x ${reps} reps)`;
   }
 
+  // Luodaan uusi listaelementti
   const li = document.createElement('li');
   li.textContent = text;
   list.appendChild(li);
 
-  // Tyhjennetään lomake seuraavaa syöttöä varten
+  // Tyhjennetään kentät
   form.reset();
 });
 
-// Tyhjennä lista kokonaan
+// Tyhjennä koko lista
 clearBtn.addEventListener('click', () => {
   list.innerHTML = '';
 });
