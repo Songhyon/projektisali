@@ -257,6 +257,9 @@ function loadSchedule() {
 
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(document.createElement('button')); // Placeholder for delete button
+    li.querySelector('button').textContent = "✖";
+    li.querySelector('button').classList.add('delete-btn');
 
     const dayName = item.text.split(':')[0];
     insertInOrder(li, dayName);
