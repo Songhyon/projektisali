@@ -5,6 +5,8 @@ const workoutSelect = document.getElementById('workout');
 const exerciseSelect = document.getElementById('exercise');
 const weekOrder = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
+
+
 const exerciseOptions = {
   "Leg Day": ["Squat", "Bulgarian Split Squat", "Leg Press", "Lunges", "Deadlift"],
   "Arm Day": ["Bicep Curl", "Tricep Pushdown", "Hammer Curl", "Overhead Extension"],
@@ -66,6 +68,34 @@ form.addEventListener('submit', (e) => {
   // Luo tekstielementti
   const span = document.createElement('span');
   span.textContent = text;
+
+
+  // reps ja sent lisäys
+  const setsInput = document.getElementById('sets').value;
+  const repsInput = document.getElementById('reps').value;
+
+  const setsSpan = document.createElement('span');
+  setsSpan.textContent = ` Sets: ${setsInput}`;
+
+  const repsSpan = document.createElement('span');
+  repsSpan.textContent = ` Reps: ${repsInput}`;
+
+  if (workout !== "Rest" && exercise) {
+  span.textContent += ` - ${exercise}`;
+}
+
+// Lisää sets ja reps vain jos ne on annettu
+if (setsInput) {
+  const setsSpan = document.createElement('span');
+  setsSpan.textContent = ` Sets: ${setsInput}`;
+  span.appendChild(setsSpan); 
+}
+
+if (repsInput) {
+  const repsSpan = document.createElement('span');
+  repsSpan.textContent = ` Reps: ${repsInput}`;
+  span.appendChild(repsSpan);
+}
 
   // Lisää molemmat listaelementtiin
   li.appendChild(checkbox);
