@@ -25,7 +25,7 @@ function updateExercise() {
 
   const defaultOption = document.createElement('option');
   defaultOption.value = "";
-  defaultOption.textContent = "--Select Exercise--";
+  defaultOption.textContent = "--Select Exercise (Hold Ctrl to select multiple)--";
   exerciseSelect.appendChild(defaultOption);
 
   exercises.forEach(ex => {
@@ -38,37 +38,33 @@ function updateExercise() {
 
 // Harjoitusvideot
 const exerciseVideos = {
-  // Leg Day
   "Squat": "https://www.youtube.com/embed/aclHkVaku9U",
   "Bulgarian Split Squat": "https://www.youtube.com/embed/hiLF_pF3EJM",
   "Leg Press": "https://www.youtube.com/embed/Aq5uxXrXq7c",
   "Lunges": "https://www.youtube.com/embed/fydLSJlGx-0",
   "Deadlift": "https://www.youtube.com/embed/vfKwjT5-86k",
-  // Arm Day
   "Bicep Curl": "https://www.youtube.com/embed/sYV-ki-1blM",
   "Tricep Pushdown": "https://www.youtube.com/embed/2-LAMcpzODU",
   "Hammer Curl": "https://www.youtube.com/embed/zC3nLlEvin4",
   "Overhead Extension": "https://www.youtube.com/embed/8WL0m0vLAPo",
-  // Back Day
   "Pull-ups": "https://www.youtube.com/embed/eGo4IYlbE5g",
   "Lat Pulldown": "https://www.youtube.com/embed/CAwf7n6Luuc",
   "Barbell Row": "https://www.youtube.com/embed/vT2GjY_Umpw",
   "Dumbbell Row": "https://www.youtube.com/embed/pYcpY20QaE8",
-  // Chest Day
   "Bench Press": "https://www.youtube.com/embed/rT7DgCr-3pg",
   "Incline Dumbbell Press": "https://www.youtube.com/embed/8iPEnn-ltC8",
   "Chest Fly": "https://www.youtube.com/embed/eozdVDA78K0",
   "Push-ups": "https://www.youtube.com/embed/IODxDxX7oi4",
   "Cable Crossover": "https://www.youtube.com/embed/taI4XduLpTk",
-  // Cardio
   "Running": "https://www.youtube.com/embed/8vZLh3eZ3Nw",
   "Cycling": "https://www.youtube.com/embed/8vZLh3eZ3Nw",
   "Rowing": "https://www.youtube.com/embed/8vZLh3eZ3Nw",
   "Jump Rope": "https://www.youtube.com/embed/8vZLh3eZ3Nw",
-  "HIIT": "https://www.youtube.com/embed/8vZLh3eZ3Nw"
+  "HIIT": "https://www.youtube.com/embed/8vZLh3eZ3Nw",
+  "No Exercise": ""
 };
 
-// Lomakkeen lähetys - lisää useita liikkeitä
+// Lomakkeen lähetys
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -83,9 +79,7 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Rest-päivälle lisää vain yksi "No Exercise"
   const exercisesToAdd = workout === "Rest" ? ["No Exercise"] : selectedExercises;
-
   if (workout !== "Rest" && exercisesToAdd.length === 0) {
     alert("Please select at least one exercise.");
     return;
@@ -113,7 +107,7 @@ form.addEventListener('submit', (e) => {
     deleteBtn.textContent = "✖";
     deleteBtn.classList.add('delete-btn');
     deleteBtn.addEventListener('click', (event) => {
-      event.stopPropagation(); // estää videon avaamisen
+      event.stopPropagation();
       li.remove();
       saveSchedule();
     });
@@ -192,7 +186,6 @@ function saveSchedule() {
     const checkbox = li.querySelector('.done-checkbox');
     const span = li.querySelector('span');
 
-    // Erotellaan sets & reps
     let sets = "";
     let reps = "";
     const setsMatch = span.textContent.match(/Sets: (\d+)/);
@@ -233,6 +226,16 @@ function loadSchedule() {
 
     li.dataset.exercise = item.exercise || "";
 
+    // Poista-painike
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "✖";
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      li.remove();
+      saveSchedule();
+    });
+
     li.addEventListener('click', () => {
       const selectedExercise = li.dataset.exercise;
       const videoDiv = document.getElementById('exercise-video');
@@ -257,9 +260,7 @@ function loadSchedule() {
 
     li.appendChild(checkbox);
     li.appendChild(span);
-    li.appendChild(document.createElement('button')); // Placeholder for delete button
-    li.querySelector('button').textContent = "✖";
-    li.querySelector('button').classList.add('delete-btn');
+    li.appendChild(deleteBtn);
 
     const dayName = item.text.split(':')[0];
     insertInOrder(li, dayName);
