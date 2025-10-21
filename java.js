@@ -108,8 +108,19 @@ form.addEventListener('submit', (e) => {
     if (setsInput) span.textContent += ` Sets: ${setsInput}`;
     if (repsInput) span.textContent += ` Reps: ${repsInput}`;
 
+    // Poista-painike
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = "✖";
+    deleteBtn.classList.add('delete-btn');
+    deleteBtn.addEventListener('click', (event) => {
+      event.stopPropagation(); // estää videon avaamisen
+      li.remove();
+      saveSchedule();
+    });
+
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(deleteBtn);
 
     // Video click-event
     li.addEventListener('click', () => {
