@@ -114,13 +114,13 @@ video {
 }
 
 .delete-btn {
-  margin-left: 1255px;
+  margin-left: 95%;
   background-color: transparent;
   border: none;
   color: rgb(255, 0, 0);
   font-weight: bold;
   cursor: pointer;
-  width: 50px;
+  width: 4%;
 }
 
 .delete-btn:hover {
