@@ -1,43 +1,68 @@
 const form = document.getElementById('workout-form');
 const list = document.getElementById('schedule-list');
-const clearBtn = document.getElementById('clear-schedule');
+const clearBtn = document.getElementById('clear'); // vastaa HTML:n ID:tä
 const workoutSelect = document.getElementById('workout');
 const exerciseSelect = document.getElementById('exercise');
-const setField = document.getElementById('set');
-const repField = document.getElementById('rep');
-const setRepFields = document.getElementById('set-rep-fields');
 
+const exerciseOptions = {
+  "Leg Day": ["Squat", "Bulgarian Split Squat", "Leg Press", "Lunges", "Deadlift"],
+  "Arm Day": ["Bicep Curl", "Tricep Pushdown", "Hammer Curl", "Overhead Extension"],
+  "Cardio": ["Running", "Cycling", "Rowing", "Jump Rope", "HIIT"],
+  "Rest": ["No Exercise"]
+};
+
+// Päivitä exercise-select kun valitaan treeni
+workoutSelect.addEventListener('change', updateExercise);
+
+function updateExercise() {
+  const selectedWorkout = workoutSelect.value;
+  const exercises = exerciseOptions[selectedWorkout] || [];
+
+  // Tyhjennä vanhat vaihtoehdot
+  exerciseSelect.replaceChildren();
+
+  // Lisää oletusvaihtoehto
+  const defaultOption = document.createElement('option');
+  defaultOption.value = "";
+  defaultOption.textContent = "--Select Exercise--";
+  exerciseSelect.appendChild(defaultOption);
+
+  // Lisää uudet liikkeet
+  exercises.forEach(ex => {
+    const option = document.createElement('option');
+    option.value = ex;
+    option.textContent = ex;
+    exerciseSelect.appendChild(option);
+  });
+}
+
+// Lomakkeen lähetys
 form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Estää sivun uudelleenlatauksen
+  e.preventDefault();
 
   const day = document.getElementById('day').value;
-  const workout = workoutSelect.value.trim();
-  const exercise = exerciseSelect.value.trim();
-  const sets = setField.value;
-  const reps = repField.value;
+  const workout = workoutSelect.value;
+  const exercise = exerciseSelect.value;
 
   if (!day || !workout) {
-    alert('Please select a day and a workout.');
+    alert("Please select a day and a workout.");
     return;
   }
 
-  // Jos valittu treeni ei ole "Rest", lisätään setit ja repsit
   let text = `${day}: ${workout}`;
-  if (workout !== 'Rest') {
-    if (exercise) text += ` - ${exercise}`;
-    text += ` (${sets} sets x ${reps} reps)`;
+  if (workout !== "Rest" && exercise) {
+    text += ` - ${exercise}`;
   }
 
-  // Luodaan uusi listaelementti
   const li = document.createElement('li');
   li.textContent = text;
   list.appendChild(li);
 
-  // Tyhjennetään kentät
   form.reset();
+  updateExercise(); // palauttaa exercise-selectin oletukseen
 });
 
-// Tyhjennä koko lista
+// Tyhjennä lista
 clearBtn.addEventListener('click', () => {
   list.innerHTML = '';
 });
