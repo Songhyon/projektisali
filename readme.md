@@ -7,15 +7,15 @@
 # Verkkolinkit
 - Julkaistu sovellus: [NordFit Workout List](https://nordfit.netlify.app)  
 - Projektin videoesittelyt:  
-  - [Anthony Video](#)  
+  - [Anthony Video](https://video.laurea.fi/media/sali+sovellus/0_6wf4cj8e)  
   - [Santerin Video](#)
 
 ---
 
 # Työn jakautuminen
 **Työmäärän jako:**  
-- Anthony: [esim. front-end ja lomakkeiden toteutus ja harjoitusvideot]  
-- Santeri: [esim. localStorage-tallennus ja harjoitusvideot ja lomakkeiden toteutus]  
+- Anthony: [esim. front-end ja harjoitusvideot ja exercise valikon vaihto ja clear button ja päivien järjestys]  
+- Santeri: [esim. localStorage-tallennus ja lomakkeiden toteutus ja checkbox]  
 - Yhteistyö sujui hyvin, työtehtävät jaettiin selkeästi ja kommunikaatio oli toimivaa.
 
 ---
@@ -25,9 +25,7 @@ Anthony
 - Mielestäni onnistuin: toteuttamaan toimivan interaktiivisen treenilistan ja videon upotukset.  
 - Parantamista olisi: käyttöliittymän hiominen ja mobiiliystävällisyys.  
 - Sovelluksesta jäi puuttumaan: mahdollisuus muokata lisättyjä harjoituksia jälkikäteen.  
-- Koen, että olen oppinut: JavaScriptin DOM-manipulaatiota, localStoragea ja web-sovellusten perusrakenteen.  
-- Epäselväksi jäi: [esim. tiettyjen bugien syyt, jos ilmenee].  
-- Antaisin itselleni pisteitä: xx/yy p
+- Koen, että olen oppinut: JavaScriptin DOM-manipulaatiota, localStoragea ja web-sovellusten perusrakenteen.    
 
 Santeri
 -
@@ -82,7 +80,7 @@ Santeri
 
 # Asennus
 1. Lataa kaikki tiedostot ja avaa `index.html` selaimessasi  
-2. Tai kloonaa repositorio: `git clone [repo linkki]`  
+2. Tai kloonaa repositorio: `git clone [https://github.com/Songhyon/projektisali.git]`  
 3. Suorita tarvittaessa: `npm install`  
 4. Käynnistä sovellus ja käytä lomakkeita normaalisti
 
@@ -98,4 +96,4 @@ Santeri
 # Kiitokset
 - Ws3 school
 - Kurssin materiaalit 
-- Käytimme ChatGPT:tä apuna koodin rakenteen suunnittelussa ja virheiden korjaamisessa.
+- Käytimme ChatGPT:tä ja Co pilottia apuna koodin rakenteen suunnittelussa ja virheiden korjaamisessa.
