@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NordFit Workout List</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="java.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="nordfit_gym_logo_-_benjamin.png" alt="NordFit Logo" id="logo" />
+    <h1>NordFit Training Counter</h1>
+  </header>
+
+  <main>
+    <p>Choose a day, select your workout, and fill sets/reps — or choose Rest.</p>
+
+    <form id="workout-form">
+      <label for="day">Choose a day:</label>
+      <select id="day" required>
+        <option value="">--Select Day--</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+      </select>
+
+      <label for="workout">Workout:</label>
+      <select id="workout" required>
+        <option value="">--Select Workout--</option>
+        <option value="Leg Day">Leg Day</option>
+        <option value="Arm Day">Arm Day</option>
+        <option value="Chest Day">Chest Day</option>
+        <option value="Back Day">Back Day</option>
+        <option value="Cardio">Cardio</option>
+        <option value="Rest">Rest</option>
+      </select>
+
+      <label for="exercise">Exercise:</label>
+      <select id="exercise" multiple>
+        <option value="">--Select Exercise (optional)-- (Hold Ctrl / Cmd to select multiple)</option>
+      </select>
+
+      <label for="sets">Sets:</label>
+      <input type="number" id="sets" min="1" placeholder="3">
+      <label for="reps">Reps:</label>
+      <input type="number" id="reps" min="1" placeholder="12">
+
+
+      
+      <div class="button-row">
+     <button type="submit">Add to Schedule</button>
+    <button class="clear" id="clear" type="button">Clear Schedule</button>
+</div>
+    </form>
+
+    <ul id="schedule-list" aria-live="polite"></ul>
+
+    <div class="video" id="exercise-video">
+</div>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NordFit</p>
+  </footer>
+</body>
+</html>
