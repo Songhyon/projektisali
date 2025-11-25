@@ -126,3 +126,9 @@ video {
 .delete-btn:hover {
   color: rgb(255, 11, 11);
 }
+
+#animation .text-xl {
+  font-size: 1.5rem;
+  color: currentColor;
+  letter-spacing: 0.06em;
+}
