@@ -8,7 +8,7 @@
 - Julkaistu sovellus: [NordFit Workout List](https://nordfit.netlify.app)  
 - Projektin videoesittelyt:  
   - [Anthony Video](https://video.laurea.fi/media/sali+sovellus/0_6wf4cj8e)  
-  - [Santerin Video](#)
+  - [Santerin Video](https://video.laurea.fi/media/ProjektiTreenilaskuri%20Santeri%20K/0_31to6nfx)
 
 ---
 
@@ -25,10 +25,12 @@ Anthony
 - Mielestäni onnistuin: toteuttamaan toimivan interaktiivisen treenilistan ja videon upotukset.  
 - Parantamista olisi: käyttöliittymän hiominen ja mobiiliystävällisyys.  
 - Sovelluksesta jäi puuttumaan: mahdollisuus muokata lisättyjä harjoituksia jälkikäteen.  
-- Koen, että olen oppinut: JavaScriptin DOM-manipulaatiota, localStoragea ja web-sovellusten perusrakenteen.    
+- Koen, että olen oppinut: JavaScriptin DOM-manipulaatiota, localStoragea ja web-sovellusten perusrakenteen.
 
 Santeri
--
+-Mielestäni onnistuin: Localstoragen koodaamisessa, siihen piti lisätä kokoajan jotain esim kun teimme loppuvaiheessa delete napin joka ei tallentunut sivun päivityksessä.
+-Parantamista olisi: Sovelluksessa voisi olla lisää ominaisuuksia ja "tilastot" mutta emme saaneet sitä toimimaan.
+-Koen, että olen oppinut: Localstoragen ymmärtämistä.
 
 ---
 
@@ -38,7 +40,7 @@ Santeri
 ---
 
 # Sisällysluettelo
-1. [Tietoja sovelluksesta](#tietoja-sovelluksesta)  
+1. [Tietoja sovelluksesta](#tietoja-sovelluksesta)
 2. [Tunnetut virheet/bugit](#tunnetut-virheetbugit)  
 3. [Teknologiat](#teknologiat)  
 4. [Asennus](#asennus)  
@@ -52,7 +54,7 @@ Santeri
 **NordFit Workout List** on yksinkertainen web-sovellus, jonka avulla käyttäjät voivat suunnitella viikoittaisen treeniohjelmansa, lisätä harjoituksia eri päiville, seurata toistoja ja sarjoja sekä katsella harjoitusvideoita.
 
 **Ominaisuudet:**
-- Valitse päivä ja treenityyppi (Leg Day, Arm Day, Chest Day, Back Day, Cardio, Rest).  
+- Valitse päivä ja treenityyppi (Leg Day, Arm Day, Chest Day, Back Day, Cardio, Rest).
 - Lisää useita harjoituksia kerralla yhdelle päivälle.  
 - Anna sarjojen (sets) ja toistojen (reps) määrät.  
 - Harjoitukset tallennetaan paikallisesti selaimeen (localStorage), joten ne pysyvät tallessa sivun päivityksestä huolimatta.  
@@ -63,7 +65,7 @@ Santeri
 ---
 
 # Tunnetut virheet/bugit
-- Sovelluksessa ei voi muokata jo lisättyjä harjoituksia.  
+- Sovelluksessa ei voi muokata jo lisättyjä harjoituksia.
 - Pieniä visuaalisia ongelmia mobiilinäytöillä.  
 - Videon upotus ei aina päivity heti uuden harjoituksen lisäämisen jälkeen.
 
@@ -79,7 +81,7 @@ Santeri
 ---
 
 # Asennus
-1. Lataa kaikki tiedostot ja avaa `index.html` selaimessasi  
+1. Lataa kaikki tiedostot ja avaa `index.html` selaimessasi
 2. Tai kloonaa repositorio: `git clone [https://github.com/Songhyon/projektisali.git]`  
 3. Suorita tarvittaessa: `npm install`  
 4. Käynnistä sovellus ja käytä lomakkeita normaalisti
@@ -87,7 +89,7 @@ Santeri
 ---
 
 # Lähestymistapa
-- Sovellus rakennettiin käyttäen modulaarista JavaScriptiä ja DOM-manipulaatiota.  
+- Sovellus rakennettiin käyttäen modulaarista JavaScriptiä ja DOM-manipulaatiota.
 - Harjoitusten tallennus toteutettiin localStorageen, jotta tiedot säilyvät sivun päivityksen jälkeen.  
 - Projektin aikana keskityimme helppokäyttöiseen UI:hin ja selkeään värikoodaukseen eri treenipäiville.
 
