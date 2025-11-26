@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NordFit Workout List</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="java.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/baffle/dist/baffle.min.js"></script>
+  <script src="animejs/dist/bundles/anime.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>NordFit Training Counter</h1>
+    <img src="nordfit_gym_logo_-_benjamin.png" alt="NordFit Logo" id="logo" />
+<div class="large grid centered square-grid">
+  <h2 class="text-xl">Push Your Limits. Track Your Progress.</h2>
+</div>
+  </header>
+
+
+
+
+
+  <main>
+    <p>Choose a day, select your workout, and fill sets/reps — or choose Rest.</p>
+
+    <form id="workout-form">
+      <label for="day">Choose a day:</label>
+      <select id="day" required>
+        <option value="">--Select Day--</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+      </select>
+
+      <label for="workout">Workout:</label>
+      <select id="workout" required>
+        <option value="">--Select Workout--</option>
+        <option value="Leg Day">Leg Day</option>
+        <option value="Arm Day">Arm Day</option>
+        <option value="Chest Day">Chest Day</option>
+        <option value="Back Day">Back Day</option>
+        <option value="Cardio">Cardio</option>
+        <option value="Rest">Rest</option>
+      </select>
+
+      <label for="exercise">Exercise:</label>
+      <select id="exercise" multiple>
+        <option value="">--Select Exercise (optional)-- (Hold Ctrl / Cmd to select multiple)</option>
+      </select>
+
+      <label for="sets">Sets:</label>
+      <input type="number" id="sets" min="1" placeholder="3">
+      <label for="reps">Reps:</label>
+      <input type="number" id="reps" min="1" placeholder="12">
+
+
+      
+      <div class="button-row">
+     <button type="submit">Add to Schedule</button>
+    <button class="clear" id="clear" type="button">Clear Schedule</button>
+</div>
+    </form>
+
+    <ul id="schedule-list" aria-live="polite"></ul>
+
+    <div class="video" id="exercise-video">
+</div>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NordFit</p>
+  </footer>
+
+    <script>
+    $(document).ready(function () {
+      // Baffle effect on H1
+      baffle('h1').reveal(20000);
+
+      // Wrap each character of all H2s in spans
+      $('h2').each(function () {
+        const $this = $(this);
+        const text = $this.text();
+        const chars = text.split('').map(c => `<span class="char">${c}</span>`).join('');
+        $this.html(chars);
+      });
+
+      // Animate H2 characters
+      anime({
+        targets: 'h2 .char',
+        translateY: [
+          { value: -44, duration: 600, easing: 'easeOutExpo' },
+          { value: 0, duration: 800, delay: 100, easing: 'easeOutBounce' }
+        ],
+        rotate: { value: '-1turn', duration: 1400, easing: 'linear' },
+        delay: anime.stagger(50),
+        loop: true,
+        loopDelay: 1000
+      });
+    });
+  </script>
+  
+</body>
+</html>
