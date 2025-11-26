@@ -268,9 +268,77 @@
       nav a{margin-left:10px}
       .promo-video-container{gap:12px}
     }
+
+    #loader-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(30, 30, 30);       /* <- change color if you want */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* Loader animation styling */
+.loader {
+  width: 100%; 
+  height: 100%;
+}
+
+.loader .poly {
+  fill: none;
+  stroke: #ff2b2b;
+  stroke-width: 16;
+  transform-origin: 50% 50%;
+  animation: move 10s linear infinite;
+  animation-delay: calc(var(--i) * -0.5s);
+}
+
+@keyframes move {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: scale(3) rotate(45deg); opacity: 0; }
+}
+
+#loader-screen {
+  transition: opacity 1s ease;
+}
+
   </style>
 </head>
+
+
+
 <body>
+
+
+  <div id="loader-screen">
+    <!-- From Uiverse.io -->
+    <svg viewBox="0 0 1000 1000" class="loader">
+        <polygon points="500,200 759,650 241,650" style="--i:0" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:1" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:2" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:3" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:4" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:5" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:6" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:7" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:8" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:9" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:10" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:11" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:12" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:13" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:14" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:15" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:16" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:17" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:18" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:19" class="poly"></polygon>
+        <polygon points="500,200 759,650 241,650" style="--i:20" class="poly"></polygon>
+    </svg>
+</div>
 
   <!-- ===== Header ===== -->
   <header>
@@ -442,6 +510,20 @@
       else { $('.h2-wrap').css('transform',''); }
     }
     $(window).on('resize load', adjustH2OnResize);
+
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader-screen").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("loader-screen").style.display = "none";
+    }, 800); 
+  }, 2500); // ⬅ WAIT TIME (adjust this)
+});
+
+
+
+    
   </script>
 
 <!-- From Uiverse.io by stlyash --> 
